@@ -3,16 +3,18 @@ package main
 import "fmt"
 
 func main() {
-	test := []int{3,2,3,4}
-	target := 6
+	test := []int{3,2,4,5,6}
+	target := 9
 	fmt.Println(twoSum(test, target))
 }
 
 func twoSum(nums []int, target int) []int {
     for i := 0; i < len(nums); i++ {
-        if nums[i] + nums[i+1] == target {
-            return []int{i, i+1}
-        }
+		for j := i+1; j < len(nums); j++ {
+			if nums[i] + nums[j] == target {
+				return []int{i, j}
+			}
+		}
     }
     return nil
 }
